@@ -1,8 +1,6 @@
 import { Cluster } from './Cluster'
-import { ConstraintFunction } from '.'
 import { FullMatrix } from './FullMatrix'
-import { getAllItems } from './visitors'
-import { getInflluencing } from './visitors'
+import { getInflluencing, getAllItems, ConstraintFunction } from './visitors'
 import { IHMatrix } from "./interfaces/IHMatrix"
 
 /**
@@ -22,13 +20,18 @@ export class Equations {
     ) {
         this.fields = new FullMatrix(this.cluster)
 
-        // Will detect Sparse and Full matrices form the root
+        // Will detect Sparse and Full matrices from the root
         this.sources = getInflluencing({
             cluster: this.cluster,
             root,
             eps,
             constraint
         })
+    }
+
+    release() {
+        this.sources.forEach( s => s.release() )
+        this.fields.release()
     }
 
     info() {
@@ -40,17 +43,19 @@ export class Equations {
                 constraint: undefined
             })
             if (matrix instanceof FullMatrix ) {
-                nbFull += items.length
+                nbFull++ // = items.length
             }
             else {
-                nbSparse += items.length
+                nbSparse++ // = items.length
             }
         })
 
         return {
-            field: this.fields.cluster.items.length,
-            sourceSparse: nbSparse,
-            sourceFull  : nbFull
+            dof_field     : this.fields.dof(),
+            //dof_source    : this.sources.reduce( (cur, s) => cur+s.dof(), 0),
+            field_items   : this.fields.cluster.items.length,
+            source_sparse : nbSparse,
+            source_full   : nbFull
         }
     }
 }

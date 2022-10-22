@@ -5,3 +5,6 @@ dist/lib
 dist/tests
 dist/index.d.ts
 junit.xml
+
+cdn.zip
+**/.DS_Store

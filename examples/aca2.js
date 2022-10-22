@@ -14,13 +14,15 @@ class Item {
         return this.x
     }
 
+    dof() {return 2}
+
     dist(i) {
         return Math.sqrt( (this.x[0]-i.x[0])**2 + (this.x[1]-i.x[1])**2 )
     }
 }
 
 const eps = 0.2
-const N = 10000
+const N = 1000
 const items = new Array(N).fill(undefined).map( (_,i) => new Item(Math.random(), Math.random()))
 
 let B, E
@@ -99,4 +101,3 @@ console.log('mem full          :', 25000000*8/1024/1024, 'Mo')
 console.log('mem approx        :', approx*8/1024/1024, 'Mo')
 console.log('max percent error :', min)
 console.log('mean percent error:', mean.toFixed(2))
-

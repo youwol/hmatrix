@@ -1,6 +1,6 @@
 const hmat = require('../dist/@youwol/hmatrix')
 
-class Item {
+class Item /* implements IItem */ {
     x = new hmat.Vector(2)
 
     constructor(x, y) {
@@ -11,6 +11,8 @@ class Item {
     pos() {
         return this.x
     }
+
+    dof() {return 2}
 
     dist(i) {
         return Math.sqrt( (this.x[0]-i.x[0])**2 + (this.x[1]-i.x[1])**2 )
@@ -65,7 +67,11 @@ x1.forEach( (val1,i) => {
 
 // ==============================
 
-const system = new hmat.System({items, minItems: 5, maxDepth: 5})
+const system = new hmat.System({
+    items, 
+    minItems: 5, 
+    maxDepth: 5
+})
 system.build({eps: 1.0})
 
 console.log( system.info() )

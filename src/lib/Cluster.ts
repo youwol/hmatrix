@@ -7,8 +7,8 @@ import { IItem } from './interfaces/IItem'
  */
 export class Cluster {
     private sons_ : Array<Cluster> = []
-    private items_: Array<IItem> = []
-    private bbox_ = new BBox()
+    private items_: Array<IItem>   = []
+    private bbox_  = new BBox()
     private level_ = -1
 
     private matrix: IHMatrix = undefined

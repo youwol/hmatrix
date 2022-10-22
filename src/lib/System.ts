@@ -54,6 +54,10 @@ export class System {
         }))
     }
 
+    release() {
+        this.equations.forEach( eq => eq.release() )
+    }
+
     info() {
         let n = 0
         this.leafs.forEach(c=> n+= c.items.length)

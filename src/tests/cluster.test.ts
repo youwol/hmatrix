@@ -9,6 +9,9 @@ class Point implements IItem {
     pos() {
         return this.x
     }
+    dof() {
+        return 2
+    }
 }
 
 test('testing cluster', () => {
@@ -18,4 +21,7 @@ test('testing cluster', () => {
     tree.maxDepth = 3
     tree.minItems = 10
     tree.subdivide()
+    // console.log(tree)
+
+    // ... to be continuated ...
 })
