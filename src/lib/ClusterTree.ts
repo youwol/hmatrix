@@ -57,8 +57,8 @@ export class ClusterTree {
             }
         })
 
-        let min = [...c.bbox.min]
-        let max = [...c.bbox.max]
+        const min = [...c.bbox.min]
+        const max = [...c.bbox.max]
         max[id] += 0.5 * (min[id] - max[id])
         const b1 = new BBox(min, max)
 

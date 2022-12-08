@@ -8,7 +8,9 @@ export class Matrix extends Array<Array<number>> {
     constructor(rows: number, cols: number) {
         super(rows)
         this.fill(undefined)
-        for (let i = 0; i < rows; ++i) this[i] = new Array(cols).fill(0)
+        for (let i = 0; i < rows; ++i) {
+            this[i] = new Array(cols).fill(0)
+        }
         this.rows_ = rows
         this.cols_ = cols
     }

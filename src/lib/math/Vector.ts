@@ -7,7 +7,9 @@ export class Vector extends Array<number> {
         if (Vector.isArray(size)) {
             size.forEach((v) => Array.prototype.push.call(this, v))
         } else {
-            for (let i = 0; i < size; ++i) Array.prototype.push.call(this, 0)
+            for (let i = 0; i < size; ++i) {
+                Array.prototype.push.call(this, 0)
+            }
         }
     }
 
@@ -17,18 +19,26 @@ export class Vector extends Array<number> {
 
     set(value: number | number[]): Vector {
         if (Array.isArray(value)) {
-            for (let i = 0; i < this.length; ++i) this[i] = value[i]
+            for (let i = 0; i < this.length; ++i) {
+                this[i] = value[i]
+            }
         } else if (typeof value === 'number') {
-            for (let i = 0; i < this.length; ++i) this[i] = value
+            for (let i = 0; i < this.length; ++i) {
+                this[i] = value
+            }
         }
         return this
     }
 
     add(value: number | number[]): Vector {
         if (Array.isArray(value)) {
-            for (let i = 0; i < this.length; ++i) this[i] += value[i]
+            for (let i = 0; i < this.length; ++i) {
+                this[i] += value[i]
+            }
         } else if (typeof value === 'number') {
-            for (let i = 0; i < this.length; ++i) this[i] += value
+            for (let i = 0; i < this.length; ++i) {
+                this[i] += value
+            }
         }
         return this
     }
@@ -36,9 +46,13 @@ export class Vector extends Array<number> {
     sub(value: number | number[]): Vector {
         const self = this.clone()
         if (Array.isArray(value)) {
-            for (let i = 0; i < self.length; ++i) self[i] -= value[i]
+            for (let i = 0; i < self.length; ++i) {
+                self[i] -= value[i]
+            }
         } else if (typeof value === 'number') {
-            for (let i = 0; i < self.length; ++i) self[i] -= value
+            for (let i = 0; i < self.length; ++i) {
+                self[i] -= value
+            }
         }
         return self
     }
@@ -46,9 +60,13 @@ export class Vector extends Array<number> {
     scale(value: number | number[]): Vector {
         const self = this.clone()
         if (Array.isArray(value)) {
-            for (let i = 0; i < self.length; ++i) self[i] *= value[i]
+            for (let i = 0; i < self.length; ++i) {
+                self[i] *= value[i]
+            }
         } else if (typeof value === 'number') {
-            for (let i = 0; i < self.length; ++i) self[i] *= value
+            for (let i = 0; i < self.length; ++i) {
+                self[i] *= value
+            }
         }
         return self
     }
@@ -63,7 +81,9 @@ export class Vector extends Array<number> {
 
     normalize(): Vector {
         const l = this.norm()
-        for (let i = 0; i < this.length; ++i) this[i] /= l
+        for (let i = 0; i < this.length; ++i) {
+            this[i] /= l
+        }
         return this
     }
 

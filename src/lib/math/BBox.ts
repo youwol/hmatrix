@@ -28,8 +28,12 @@ export class BBox {
             throw new Error('length mistmatch')
         }
         v.forEach((x, i) => {
-            if (x < this.min[i]) this.min[i] = x
-            if (x > this.max[i]) this.max[i] = x
+            if (x < this.min[i]) {
+                this.min[i] = x
+            }
+            if (x > this.max[i]) {
+                this.max[i] = x
+            }
         })
         this.update()
     }
@@ -60,9 +64,12 @@ export class BBox {
         d.forEach((coord1) => {
             d.forEach((coord2) => {
                 let l = 0
-                for (let i = 0; i < dim; ++i)
+                for (let i = 0; i < dim; ++i) {
                     l += (c1[coord1[i]] - c2[coord2[i]]) ** 2
-                if (l < L) L = l
+                }
+                if (l < L) {
+                    L = l
+                }
             })
         })
 
@@ -70,17 +77,23 @@ export class BBox {
     }
 
     get dim() {
-        if (this.min === undefined) return undefined
+        if (this.min === undefined) {
+            return undefined
+        }
         return this.min.length
     }
 
     get length() {
-        if (this.min === undefined) return undefined
+        if (this.min === undefined) {
+            return undefined
+        }
         return this.min.map((m, i) => this.max[i] - m)
     }
 
     get center() {
-        if (this.min === undefined) return undefined
+        if (this.min === undefined) {
+            return undefined
+        }
         return this.min.map((m, i) => (this.max[i] + m) / 2)
     }
 

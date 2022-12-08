@@ -37,7 +37,9 @@ for (let i = 0; i < N; ++i) {
 }
 const m = new hmat.Matrix(N, N)
 const b = new hmat.Vector(N)
-for (let j = 0; j < N; ++j) b[j] = j
+for (let j = 0; j < N; ++j) {
+    b[j] = j
+}
 class MProvider {
     constructor(A) {
         this.A = A

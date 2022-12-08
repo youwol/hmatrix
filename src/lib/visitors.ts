@@ -26,7 +26,9 @@ export function getLeafs({
 
     const leafs = []
     cluster.visit((c) => {
-        if (!c.hasSons && (constraint ? constraint(c) : true)) leafs.push(c)
+        if (!c.hasSons && (constraint ? constraint(c) : true)) {
+            leafs.push(c)
+        }
     })
     return leafs
 }
@@ -80,7 +82,9 @@ export function getInflluencing({
     if (!cluster || cluster.hasSons) {
         throw new Error('cluster c must be defined and be a leaf')
     }
-    if (!root) throw new Error('root is undefined')
+    if (!root) {
+        throw new Error('root is undefined')
+    }
 
     const r: IHMatrix[] = []
 

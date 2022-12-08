@@ -45,7 +45,9 @@ E = process.cpuUsage(B)
 console.log('Building a fake matrix A:', E)
 
 const b = new hmat.Vector(N)
-for (let j = 0; j < N; ++j) b[j] = j
+for (let j = 0; j < N; ++j) {
+    b[j] = j
+}
 
 class MProvider {
     constructor(A) {
@@ -90,7 +92,9 @@ let cum = 0
 x1.forEach((val1, i) => {
     const val2 = x2[i]
     let percent = Math.abs((100 * (val1 - val2)) / val1)
-    if (percent > min) min = percent
+    if (percent > min) {
+        min = percent
+    }
     cum += percent
 
     // s += i + " " + (val2.toFixed(5)+'').replace('.',',') + " " +

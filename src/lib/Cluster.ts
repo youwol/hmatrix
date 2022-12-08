@@ -46,7 +46,9 @@ export class Cluster {
     }
 
     visit(cb: Function, ...args) {
-        if (cb(this, ...args)) return
+        if (cb(this, ...args)) {
+            return
+        }
         this.sons_.forEach((son) => son.visit(cb, ...args))
     }
 
