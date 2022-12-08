@@ -14,11 +14,11 @@ export class SparseMatrix implements IHMatrix {
     private matrix: Matrix = undefined
 
     constructor(public cluster: Cluster) {
-        this.items = getAllItems({cluster})
+        this.items = getAllItems({ cluster })
     }
 
     dof(): number {
-        return this.items.reduce( (cur, item) => cur + item.dof(), 0 )
+        return this.items.reduce((cur, item) => cur + item.dof(), 0)
     }
 
     build() {

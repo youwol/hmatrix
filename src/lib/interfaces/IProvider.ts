@@ -1,4 +1,3 @@
-
 /**
  * A provider allows to get component of an evaluated tensor.
  * This can be, for example, traction influence tensor, displacement

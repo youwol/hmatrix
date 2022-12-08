@@ -1,4 +1,4 @@
-import { BBox} from './math/BBox'
+import { BBox } from './math/BBox'
 import { Cluster } from './Cluster'
 import { IItem } from './interfaces/IItem'
 
@@ -14,9 +14,15 @@ export class ClusterTree {
         this.root_ = new Cluster(items, 0)
     }
 
-    get minItems() {return this.minItems_}
-    get maxDepth() {return this.maxDepth_}
-    get root()     {return this.root_}
+    get minItems() {
+        return this.minItems_
+    }
+    get maxDepth() {
+        return this.maxDepth_
+    }
+    get root() {
+        return this.root_
+    }
 
     visit(cb: Function, ...args) {
         this.root_.visit(cb, ...args)
@@ -35,31 +41,37 @@ export class ClusterTree {
     }
 
     private subdivideCluster(c: Cluster, parentLevel: number) {
-        if (parentLevel+1>this.maxDepth) {
+        if (parentLevel + 1 > this.maxDepth) {
             return
         }
-        if (c.items.length<= this.minItems) {
+        if (c.items.length <= this.minItems) {
             return
         }
 
-        let id = 0, L = 0
-        c.bbox.length.forEach( (l,i) => { if (l>L) {L=l; id=i} })
+        let id = 0,
+            L = 0
+        c.bbox.length.forEach((l, i) => {
+            if (l > L) {
+                L = l
+                id = i
+            }
+        })
 
         let min = [...c.bbox.min]
         let max = [...c.bbox.max]
-        max[id] += 0.5*(min[id]-max[id])
+        max[id] += 0.5 * (min[id] - max[id])
         const b1 = new BBox(min, max)
 
         const i1: IItem[] = []
         const i2: IItem[] = []
-        c.items.forEach( i => b1.contains(i.pos()) ? i1.push(i) : i2.push(i) )
+        c.items.forEach((i) => (b1.contains(i.pos()) ? i1.push(i) : i2.push(i)))
 
-        const c1 = new Cluster(i1, parentLevel+1)
-        const c2 = new Cluster(i2, parentLevel+1)
+        const c1 = new Cluster(i1, parentLevel + 1)
+        const c2 = new Cluster(i2, parentLevel + 1)
         c.sons.push(c1)
         c.sons.push(c2)
         c.clearItems()
-        this.subdivideCluster(c1, parentLevel+1)
-        this.subdivideCluster(c2, parentLevel+1)
+        this.subdivideCluster(c1, parentLevel + 1)
+        this.subdivideCluster(c2, parentLevel + 1)
     }
 }
