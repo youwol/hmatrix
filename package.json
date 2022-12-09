@@ -56,6 +56,16 @@
     "eslintConfig": {
         "extends": [
             "@youwol"
+        ],
+        "overrides": [
+            {
+                "files": [
+                    "examples/**/*.js"
+                ],
+                "env": {
+                    "node": true
+                }
+            }
         ]
     }
 }
