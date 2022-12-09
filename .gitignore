@@ -1,10 +1,11 @@
 node_modules
 examples/result.txt
-dist/@youwol
-dist/lib
-dist/tests
-dist/index.d.ts
 junit.xml
+
+/dist/*
+!/dist/docs/
+!/dist/docs/*
+!/dist/docs/**/*
 
 cdn.zip
 **/.DS_Store
