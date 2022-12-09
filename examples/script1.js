@@ -24,7 +24,7 @@ class Item /* implements IItem */ {
 const N = 100
 const items = new Array(N)
     .fill(undefined)
-    .map((_, i) => new Item(Math.random(), Math.random()))
+    .map(() => new Item(Math.random(), Math.random()))
 
 // Building a fake matrix
 const A = new hmat.Matrix(N, N)
@@ -35,7 +35,7 @@ for (let i = 0; i < N; ++i) {
         A[i][j] = 1 - source.dist(field) ** 3
     }
 }
-const m = new hmat.Matrix(N, N)
+const _m = new hmat.Matrix(N, N)
 const b = new hmat.Vector(N)
 for (let j = 0; j < N; ++j) {
     b[j] = j

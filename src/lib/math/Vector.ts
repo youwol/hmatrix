@@ -96,7 +96,7 @@ export class Vector extends Array<number> {
     }
 
     // --> Forbidden
-    push(...items: number[]): number {
+    push(..._items: number[]): number {
         throw new Error(
             `Cannot push items in Vec because of the fixed size (here ${this.length})`,
         )
@@ -119,7 +119,11 @@ export class Vector extends Array<number> {
             `Cannot unshift in Vec because of the fixed size (here ${this.length})`,
         )
     }
-    splice(start: number, deleteCount?: number, ...items: number[]): number[] {
+    splice(
+        _start: number,
+        _deleteCount?: number,
+        ..._items: number[]
+    ): number[] {
         throw new Error(
             `Cannot splice in Vec because of the fixed size (here ${this.length})`,
         )

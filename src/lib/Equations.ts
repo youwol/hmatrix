@@ -42,7 +42,7 @@ export class Equations {
         let nbSparse = 0
         let nbFull = 0
         this.sources.forEach((matrix) => {
-            const items = getAllItems({
+            const _items = getAllItems({
                 cluster: matrix.cluster,
                 constraint: undefined,
             })

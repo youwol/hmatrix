@@ -1,5 +1,4 @@
 const hmat = require('../dist/@youwol/hmatrix')
-const fs = require('fs')
 const process = require('process')
 
 class Item {
@@ -27,7 +26,7 @@ const eps = 0.2
 const N = 1000
 const items = new Array(N)
     .fill(undefined)
-    .map((_, i) => new Item(Math.random(), Math.random()))
+    .map(() => new Item(Math.random(), Math.random()))
 
 let B, E
 
@@ -40,7 +39,7 @@ for (let i = 0; i < N; ++i) {
     }
 }
 B = process.cpuUsage()
-const m = new hmat.Matrix(N, N)
+const _m = new hmat.Matrix(N, N)
 E = process.cpuUsage(B)
 console.log('Building a fake matrix A:', E)
 
