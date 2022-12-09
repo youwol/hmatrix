@@ -34,7 +34,7 @@ export class ClusterTree {
         return this.root_
     }
 
-    visit(cb: Function, ...args) {
+    visit(cb: (v: Cluster, ...args) => unknown, ...args) {
         this.root_.visit(cb, ...args)
     }
 

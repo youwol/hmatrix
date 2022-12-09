@@ -45,14 +45,14 @@ export class Cluster {
         return Math.min(r1, r2) < eps * dist
     }
 
-    visit(cb: Function, ...args) {
+    visit(cb: (v: Cluster, ...args) => unknown, ...args) {
         if (cb(this, ...args)) {
             return
         }
         this.sons_.forEach((son) => son.visit(cb, ...args))
     }
 
-    detect(condition: Function, container: Array<Cluster>) {
+    detect(condition: (v: Cluster) => unknown, container: Array<Cluster>) {
         if (condition(this)) {
             container.push(this)
             return
