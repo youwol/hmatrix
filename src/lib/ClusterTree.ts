@@ -17,23 +17,25 @@ export class ClusterTree {
     get minItems() {
         return this.minItems_
     }
-    get maxDepth() {
-        return this.maxDepth_
-    }
-    get root() {
-        return this.root_
+
+    set minItems(min) {
+        this.minItems_ = min
     }
 
-    visit(cb: Function, ...args) {
-        this.root_.visit(cb, ...args)
+    get maxDepth() {
+        return this.maxDepth_
     }
 
     set maxDepth(depth) {
         this.maxDepth_ = depth
     }
 
-    set minItems(min) {
-        this.minItems_ = min
+    get root() {
+        return this.root_
+    }
+
+    visit(cb: Function, ...args) {
+        this.root_.visit(cb, ...args)
     }
 
     subdivide() {
