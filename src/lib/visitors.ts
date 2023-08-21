@@ -1,6 +1,6 @@
 import { IHMatrix } from './interfaces/IHMatrix'
-import { FullMatrix } from './FullMatrix'
-import { SparseMatrix } from './SparseMatrix'
+import { FullMatrix } from './math/FullMatrix'
+import { SparseMatrix } from './math/SparseMatrix'
 import { Cluster } from './Cluster'
 //import { admissible } from "./math/admissible"
 

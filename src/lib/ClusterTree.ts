@@ -3,7 +3,7 @@ import { Cluster } from './Cluster'
 import { IItem } from './interfaces/IItem'
 
 /**
- * @category H-Matrix
+ * @category Contruction
  */
 export class ClusterTree {
     private maxDepth_ = 5
@@ -50,8 +50,7 @@ export class ClusterTree {
             return
         }
 
-        let id = 0,
-            L = 0
+        let id = 0, L = 0
         c.bbox.length.forEach((l, i) => {
             if (l > L) {
                 L = l
@@ -62,7 +61,7 @@ export class ClusterTree {
         const min = [...c.bbox.min]
         const max = [...c.bbox.max]
         max[id] += 0.5 * (min[id] - max[id])
-        const b1 = new BBox(min, max)
+        const b1 = new BBox([...min, ...max])
 
         const i1: IItem[] = []
         const i2: IItem[] = []

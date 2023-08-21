@@ -1,6 +1,9 @@
-import { Vector } from '../math/Vector'
+import { BBox } from '../math'
+import { Point } from '../types'
 
 export interface IItem {
-    pos(): Vector
+    pos(): Point
     dof(): number
+    bbox(): BBox
+    setBBox(b: BBox): void
 }

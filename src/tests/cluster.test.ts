@@ -1,6 +1,7 @@
 import { IItem, Vector } from '../lib'
 
-class _Point implements IItem {
+/*
+class Point implements IItem {
     x = new Vector(2)
     constructor(x: number, y: number) {
         this.x[0] = x
@@ -13,6 +14,7 @@ class _Point implements IItem {
         return 2
     }
 }
+*/
 
 test.todo(
     'testing cluster' /*, () => {

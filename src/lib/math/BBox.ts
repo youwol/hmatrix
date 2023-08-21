@@ -1,3 +1,4 @@
+import { Vector3 } from '../types'
 import { Vector } from './Vector'
 
 /**
@@ -8,33 +9,56 @@ export class BBox {
     max: Vector
     diameter = 0
 
-    constructor(min: number[] = undefined, max: number[] = undefined) {
-        if (min !== undefined) {
-            this.min = new Vector(min)
-            if (max !== undefined) {
-                this.max = new Vector(max)
-                if (this.max.length !== this.min.length) {
-                    throw new Error('min and max are not in the same dimension')
-                }
-                this.update()
-            }
+    // constructor(min: number[] = undefined, max: number[] = undefined) {
+    //     if (min !== undefined) {
+    //         this.min = new Vector(min)
+    //         if (max !== undefined) {
+    //             this.max = new Vector(max)
+    //             if (this.max.length !== this.min.length) {
+    //                 throw new Error('min and max are not in the same dimension')
+    //             }
+    //             this.update()
+    //         }
+    //     }
+    // }
+
+    constructor(minmax: number[] = undefined) {
+        if (minmax !== undefined) {
+            this.min = new Vector([minmax[0], minmax[1], minmax[2]])
+            this.max = new Vector([minmax[3], minmax[4], minmax[5]])
+            this.update()
+        } else {
+            this.min = new Vector(3)
+            this.max = new Vector(3)
         }
     }
 
-    grow(v: number[]) {
-        this.init(v.length)
+    set(min: Vector, max: Vector) {
+        this.min = min
+        this.max = max
+        this.update()
+    }
 
-        if (v.length !== this.min.length) {
-            throw new Error('length mistmatch')
+    grow(v: number[] | BBox) {
+        if (Array.isArray(v)) {
+            this.init(v.length)
+
+            if (v.length !== this.min.length) {
+                throw new Error('length mistmatch')
+            }
+            v.forEach((x, i) => {
+                if (x < this.min[i]) {
+                    this.min[i] = x
+                }
+                if (x > this.max[i]) {
+                    this.max[i] = x
+                }
+            })
+        } else {
+            this.grow(v.min)
+            this.grow(v.max)
         }
-        v.forEach((x, i) => {
-            if (x < this.min[i]) {
-                this.min[i] = x
-            }
-            if (x > this.max[i]) {
-                this.max[i] = x
-            }
-        })
+
         this.update()
     }
 
@@ -95,6 +119,10 @@ export class BBox {
             return undefined
         }
         return this.min.map((m, i) => (this.max[i] + m) / 2)
+    }
+
+    get isEmpty() {
+        return this.diameter === 0
     }
 
     private init(n: number) {

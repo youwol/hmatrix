@@ -29,7 +29,6 @@ export class ACA implements IApproximation {
         do {
             // Compute the entries of b
             this.getB(provider, i0, b)
-            //console.log(b)
 
             // Find pivot index j* that maximize the newly created b
             j0 = this.getPivot(b)
@@ -45,10 +44,8 @@ export class ACA implements IApproximation {
             sum_err = R.sumError
             if (k > 1) {
                 norm = R.norm
-                //console.log("Iter  =", k, " frobenius-norm=", norm)
             } else {
                 norm_init = R.norm
-                //console.log("Start =", k, " frobenius-norm=", norm_init)
             }
 
             this.a_.push(a.clone())
@@ -57,21 +54,21 @@ export class ACA implements IApproximation {
         } while (norm > eps * norm_init)
         this.k_ = k - 1
 
-        console.log(
-            'REACHED the user precision. STOP the approximation with rank=',
-            k,
-        )
-        console.log('Usual  numbers: ', this.n_ * this.m_)
-        console.log('Approx numbers: ', this.k_ * (this.n_ + this.m_))
-        console.log(
-            'Ratio         : ',
-            ((this.n_ * this.m_) / (this.k_ * (this.n_ + this.m_))).toFixed(2),
-        )
-        const percent = (
-            100 -
-            ((this.k_ * (this.n_ + this.m_)) / (this.n_ * this.m_)) * 100
-        ).toFixed(2)
-        console.log('percent redux : ', percent)
+        // console.log(
+        //     'REACHED the user precision. STOP the approximation with rank=',
+        //     k,
+        // )
+        // console.log('Usual  numbers: ', this.n_ * this.m_)
+        // console.log('Approx numbers: ', this.k_ * (this.n_ + this.m_))
+        // console.log(
+        //     'Ratio         : ',
+        //     ((this.n_ * this.m_) / (this.k_ * (this.n_ + this.m_))).toFixed(2),
+        // )
+        // const percent = (
+        //     100 -
+        //     ((this.k_ * (this.n_ + this.m_)) / (this.n_ * this.m_)) * 100
+        // ).toFixed(2)
+        // console.log('percent redux : ', percent)
     }
 
     mult(B: Vector, C: Vector) {
@@ -140,13 +137,14 @@ export class ACA implements IApproximation {
         }
     }
 
-    get n() {
+    n() {
         return this.n_
     }
-    get m() {
+
+    m() {
         return this.m_
     }
-    get rank() {
+    rank() {
         return this.k_
     }
 
@@ -193,7 +191,6 @@ export class ACA implements IApproximation {
                 new_i0 = i
             }
         }
-        //console.assert(new_i0 != -1)
         return new_i0
     }
 

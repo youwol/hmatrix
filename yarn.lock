@@ -979,10 +979,25 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@youwol/dataframe@^0.0.38":
+  version "0.0.38"
+  resolved "https://registry.yarnpkg.com/@youwol/dataframe/-/dataframe-0.0.38.tgz#0ce3876b0dc0e7a77c99e08482e03737b3d3fc70"
+  integrity sha512-bJDNyuTtLHo0JDxLpB248QQ51Nx6D8rsj2VUi1Tj1lERuPHXuPEweBLdNiphn96efOJ1cZiZOLb/d6LDaoyxSw==
+
 "@youwol/eslint-config@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@youwol/eslint-config/-/eslint-config-0.0.4.tgz#f5ca190a60173d67dd01306587c0ac0dc1d184e0"
   integrity sha512-TdsslNgIeh/zOw/h20FNK7I8TW67YrIc0doNzodVyM0agUsHQbxvUKZt590DqVJ03UTDsGR3xSEu3ivkDmZzEw==
+
+"@youwol/io@^0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@youwol/io/-/io-0.0.25.tgz#e2c73f623c95a27a75eeea84ce708a876b851c20"
+  integrity sha512-klzGVwpOvaUYZxXXQUbGLnoikaCP45Alctp1tZkhUhnw1jGt3e3tLmB11tO3WeJodoEpEcGS3v4uqVOQEeo2sw==
+
+"@youwol/math@^0.0.27":
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/@youwol/math/-/math-0.0.27.tgz#7a111564bd7fe9ecc4dcea88002a45b9dc6b5b7b"
+  integrity sha512-zG7r3bt7gKC0YCZ+46f/sFxVa1m/YWDwytEPye9wJBY86SdlT9muWqBqxhIJtQD6l2a5TMXNCUQTHM7M5AZtRA==
 
 "@youwol/prettier-config@^0.0.2":
   version "0.0.2"
@@ -3390,14 +3405,14 @@ json-stable-stringify-without-jsonify@^1.0.1:
   integrity sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
 
 json5@2.x, json5@^2.1.2:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.1.tgz#655d50ed1e6f95ad1a3caababd2b0efda10b395c"
-  integrity sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
+  integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
 json5@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
-  integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.2.tgz#63d98d60f21b313b77c4d6da18bfa69d80e1d593"
+  integrity sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==
   dependencies:
     minimist "^1.2.0"
 

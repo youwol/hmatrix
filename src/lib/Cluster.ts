@@ -3,7 +3,7 @@ import { BBox } from './math/BBox'
 import { IItem } from './interfaces/IItem'
 
 /**
- * @category H-Matrix
+ * @category Contruction
  */
 export class Cluster {
     private sons_: Array<Cluster> = []

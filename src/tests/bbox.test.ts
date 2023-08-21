@@ -34,7 +34,7 @@ test('testing BBox', () => {
 
 test('testing distance', () => {
     const c = 2
-    const a = new BBox([0, 0], [1, 1])
-    const b = new BBox([c, c], [c + 1, c + 1])
-    expect(a.distance(b)).toBeCloseTo(Math.sqrt(2))
+    const a = new BBox([0, 0, 0, 1, 1, 1])
+    const b = new BBox([c, c, c, c + 1, c + 1, c + 1])
+    expect(a.distance(b)).toBeCloseTo(Math.sqrt(3))
 })
