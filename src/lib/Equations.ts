@@ -4,7 +4,7 @@ import { getInflluencing, getAllItems, ConstraintFunction } from './visitors'
 import { IHMatrix } from './interfaces/IHMatrix'
 
 /**
- * An Equations represents, for a given cluster, the influencing clusters matrices
+ * An Equation represents, for a given cluster, the influencing clusters matrices
  * @category H-Matrix
  */
 export class Equations {
